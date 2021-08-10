@@ -17,8 +17,6 @@ public class DepartmentService {
 	
 	@Autowired
 	private DepartmentRepository departmentRepository;
-	
-	private static final Logger log = org.slf4j.LoggerFactory.getLogger(DepartmentService.class);
 
 	public Department saveDepartment(Department department) {
 		log.info("Indide saveDepartment method of DepartmentService");

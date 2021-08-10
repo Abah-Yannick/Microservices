@@ -1,6 +1,5 @@
 package com.jobertcode.user.entity;
 
-import javax.annotation.processing.Generated;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,8 +13,7 @@ import lombok.Setter;
 @Data
 @Getter
 @Setter
-public class User {
-	
+public class User {	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long userId;

@@ -16,17 +16,14 @@ import com.jobertcode.department.service.DepartmentService;
 
 import lombok.extern.slf4j.Slf4j;
 
-
+@Slf4j
 @RestController
 @RequestMapping("/departments")
-@Slf4j
 public class DepartmentController {
 	
 	@Autowired
 	private DepartmentService departmentService;
-	
-	private static final Logger log = org.slf4j.LoggerFactory.getLogger(DepartmentController.class);
-	
+		
 	@PostMapping("/")
 	public Department saveDepartment(@RequestBody Department department) {
 		log.info("Indide saveDepartment method of DepartmentController");

@@ -2,6 +2,7 @@ package com.jobertcode.user.service;
 
 import java.util.Optional;
 
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -22,7 +23,7 @@ public class UserService {
 
 	@Autowired
 	private RestTemplate restTemplate;
-
+	
 	public User saveUser(User user) {
 		log.info("Indide saveUser method of UserService");
 		return userRepository.save(user);
@@ -34,7 +35,7 @@ public class UserService {
 		Optional<User> user = userRepository.findById(userId);
 
 		Department department = restTemplate
-				.getForObject("http://localhost:8080/departments/" + user.get().getDepartmentId(), Department.class);
+				.getForObject("http://DEPARTMENT-SERVICE/departments/" + user.get().getDepartmentId(), Department.class);
 
 		vo.setUser(user.get());
 		vo.setDepartment(department);
