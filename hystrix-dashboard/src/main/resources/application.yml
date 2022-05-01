@@ -3,17 +3,22 @@ server:
 spring:
   application:
     name: HYSTRIX-DASHBOARD
+  cloud:
+    inetutils:
+      preferredNetworks:
+        - 192.168
 
 hystrix:
   dashboard:
-    proxy-stream-allow-list: "*"
+    proxyStreamAllowList: "*"
 
 
 eureka:
   client:
-    fetch-registry: true
-    register-with-eureka: true
-    service-url:
-      defaultZone: http://localhost:8761/eureka/
+    fetchRegistry: true
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: ${eureka_url:http://192.168.0.22:8761/eureka}
   instance:
-    hostname: localhost
+    preferIpAddress: true
+    hostname: 192.168.0.22
